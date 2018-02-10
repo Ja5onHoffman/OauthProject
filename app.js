@@ -3,7 +3,7 @@ const express = require("express")
 const bodyparser = require("body-parser")
 const pug = require("pug")
 const request = require("request")
-const AWS = require("aws-sdk")
+// const AWS = require("aws-sdk")
 const app = express() 
 const stategen = require('./stategen')
 
