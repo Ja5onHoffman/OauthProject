@@ -132,6 +132,6 @@ app.get('/email', function(req, res, next) {
 })
 
 
-app.listen(80, function() {
+app.listen(process.env.PORT, function() {
     console.log("Listening");
 })
