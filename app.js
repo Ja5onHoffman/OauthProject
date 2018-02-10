@@ -37,7 +37,7 @@ app.get('/authcode', function (req, res, next) {
     var qs = {
         response_type: 'code',
         client_id: CLIENT_ID,
-        redirect_uri: 'https://8230a8f7c8f54d379622845bd36e4a2e.vfs.cloud9.us-east-1.amazonaws.com/oauth',
+        redirect_uri: 'https://oauthproject.herokuapp.com/oauth',
         scope: 'email',
         state: state
     }
@@ -81,7 +81,7 @@ app.post('/oauth', function(req, res, next) {
     var url = 'https://accounts.google.com/o/oauth2/token';
     var payload = {
         code: code,
-        redirect_uri: 'https://8230a8f7c8f54d379622845bd36e4a2e.vfs.cloud9.us-east-1.amazonaws.com/oauth',
+        redirect_uri: 'https://oauthproject.herokuapp.com/oauth',
         client_id: CLIENT_ID,
         client_secret: CLIENT_SECRET,
         grant_type: 'authorization_code'
@@ -132,6 +132,6 @@ app.get('/email', function(req, res, next) {
 })
 
 
-app.listen(8080, function() {
+app.listen(80, function() {
     console.log("Listening");
 })
