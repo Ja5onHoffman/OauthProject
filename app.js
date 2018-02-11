@@ -74,7 +74,7 @@ app.get('/oauth', function (req, res, next) {
 
 // POST code to get token from Google
 app.post('/oauth', function(req, res, next) {
-    var tokenBody
+    // var tokenBody
     var url = 'https://accounts.google.com/o/oauth2/token';
     var payload = {
         code: code,
@@ -85,9 +85,9 @@ app.post('/oauth', function(req, res, next) {
     };
     
     // If token hasn't been received POST to get token
-    if (!tokenBody) {
+    if (!app.get('tokenBody')) {
         request.post(url, { form: payload }, function(error, response, body){
-            tokenBody = body
+            // tokenBody = body
             app.set('tokenBody', JSON.parse(body))
         })
         
@@ -126,6 +126,10 @@ app.get('/email', function(req, res, next) {
             message: 'Done!'
         })
     })
+
+    // Reset token
+    app.set('tokenBody', null)
+    code = null
 })
 
 var port = process.env.PORT || 8080
