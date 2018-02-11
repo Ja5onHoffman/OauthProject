@@ -130,7 +130,6 @@ app.get('/email', function(req, res, next) {
     // Reset token
     app.set('tokenBody', null)
     code = null
-    
 })
 
 var port = process.env.PORT || 8080
