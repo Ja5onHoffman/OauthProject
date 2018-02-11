@@ -31,7 +31,6 @@ app.get('/', function(req, res, next) {
 // authorization page
 app.get('/authcode', function (req, res, next) {
     var state = app.get('state')
-    console.log(state)
     var qs = {
         response_type: 'code',
         client_id: process.env.CLIENT_ID,
@@ -70,7 +69,6 @@ app.get('/oauth', function (req, res, next) {
             message: 'Code Received. Get Token.'
         })
     }
-
 })
 
 // POST code to get token from Google
