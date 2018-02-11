@@ -13,8 +13,6 @@ app.use(express.static(path.join(__dirname, '/')))
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }))
 
-var CLIENT_ID = '633397888776-rce9305sf4rsos4ahb76otk2855do939.apps.googleusercontent.com'
-var CLIENT_SECRET = 'eEXZfCb7fRZ9A9NMsnj60WbB'
 var GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 
 // Starting page
@@ -37,7 +35,7 @@ app.get('/authcode', function (req, res, next) {
     var qs = {
         response_type: 'code',
         client_id: CLIENT_ID,
-        redirect_uri: 'https://oauthproject.herokuapp.com/oauth',
+        redirect_uri: REDIRECT_URI,
         scope: 'email',
         state: state
     }
@@ -81,7 +79,7 @@ app.post('/oauth', function(req, res, next) {
     var url = 'https://accounts.google.com/o/oauth2/token';
     var payload = {
         code: code,
-        redirect_uri: 'https://oauthproject.herokuapp.com/oauth',
+        redirect_uri: REDIRECT_URI,
         client_id: CLIENT_ID,
         client_secret: CLIENT_SECRET,
         grant_type: 'authorization_code'

@@ -1,5 +1,6 @@
 
 
+// Randomly generate a state variable
 module.exports = function() {
   	var c = []
     for (i = 0; i < 6; i++) {
