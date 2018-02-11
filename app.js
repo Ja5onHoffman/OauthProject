@@ -7,7 +7,7 @@ const request = require("request")
 const app = express() 
 const stategen = require('./stategen')
 
-var code;
+var code = null
 app.set('view engine', 'pug')
 app.use(express.static(path.join(__dirname, '/')))
 app.use(bodyparser.json())
